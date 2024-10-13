@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="SP">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Big+Shoulders+Display:wght@300;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damlest</title>
+    <link rel="icon" type="image" href="../images/damlest.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/App.css"> <!-- Archivo CSS separado -->
+</head>
+<body>
+    <div class="container">
+        <!-- Imagen de error visible -->
+        <div class="damlest-error">
+            <img src="../images/1.png" alt="Error" class="error-image wide-image"/> 
+        </div>
+        <!-- Animación de carga con imagen visible -->
+        <div class="damlest-loading">
+            <!-- Imagen que se muestra durante la carga -->
+            <img class="loading-image" src="../images/2.png" alt="Loading"/> <!-- Cambia la ruta según corresponda -->
+            <!-- Texto de carga -->
+            <div class="loading-message">Loading...</div>
+            <!-- Círculo de puntos animados -->
+            <section class="circle-section">
+                <div class="dots">
+                    <span style="--i:1;"></span>
+                    <span style="--i:2;"></span>
+                    <span style="--i:3;"></span>
+                    <span style="--i:4;"></span>
+                    <span style="--i:5;"></span>
+                    <span style="--i:6;"></span>
+                    <span style="--i:7;"></span>
+                    <span style="--i:8;"></span>
+                </div>
+            </section>
+        </div>
+        <!-- Barra de progreso de 24 horas -->
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+    <!-- Imagen adicional al final de la página -->
+    <img src="../images/3.png" alt="Imagen final" class="additional-image wide-image"/>
+    <script src="/java/script.js"></script> 
+    <script src="/java/App.jsx"></script> 
+    <button type="button" class="btn btn-secondary" onclick="location.href='index.html'">Preparación de la carrera</button>
+</body>
+</html>
