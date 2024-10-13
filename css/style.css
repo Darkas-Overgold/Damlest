@@ -1,0 +1,633 @@
+.racing-sans-one-regular {
+    font-family: "Racing Sans One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.cormorant-garamond-bold {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Racing Sans One', sans-serif;
+    background-color: #000;
+}
+
+/* Contenedor de la Imagen */
+.image-container {
+    position: relative;
+    height: 100vh;
+    /* Mantiene el contenedor en el 100% de la vista vertical */
+    overflow: hidden;
+    /* Asegura que nada se desborde */
+    margin: 0;
+    /* Asegúrate de que no haya márgenes */
+}
+
+#background-image {
+    width: 100%;
+    /* Asegura que el ancho de la imagen es el 100% del contenedor */
+    height: 100%;
+    /* Asegura que la imagen ocupe toda la altura del contenedor */
+    object-fit: fill;
+    /* Estira la imagen para llenar completamente el contenedor */
+}
+
+/* Overlay para centrar elementos */
+.overlay {
+    position: absolute;
+    bottom: -150px;
+    /* Mantener en la misma posición */
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: white;
+    text-align: center;
+}
+
+/* Barra de progreso */
+.progress-bar {
+    width: 60%;
+    margin: 0 auto;
+    /* Centrado horizontal */
+    margin-top: -650px;
+    /* La barra de progreso se coloca mucho más arriba */
+    background: transparent;
+    border-radius: 25px;
+    border: 5px solid black;
+    padding: 5px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: start;
+}
+
+.progress {
+    display: flex;
+    animation: progress-animation 5s linear forwards;
+    transition: transform 5s linear;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(100% - 50px));
+    }
+}
+
+@keyframes move-infinite {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(100% - 50px));
+        animation: move-infinite 2s linear infinite;
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+    99% {
+        transform: translateX(calc(100% - 50px));
+    }
+    100% {
+        transform: translateX(0); /* Reinicio al llegar al final */
+    }
+}
+
+.oval {
+    width: 10px;
+    height: 25px;
+    background: #000;
+    border-radius: 15px;
+    margin: 0 5px;
+    animation: move 2s linear infinite; /* Bucle infinito */
+}
+
+.progress-icon {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@keyframes progress-animation {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(100% - 50px));
+    }
+}
+
+/* Botón de iniciar */
+.btn-iniciar {
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 320px;
+    /* Aumenta el margen superior para mover el botón más abajo */
+    border: 2px solid black;
+    font-family: 'Racing Sans One', sans-serif, bold;
+}
+
+.frase {
+    margin-top: 50px;
+    /* Ajusta el margen superior según sea necesario */
+    color: white;
+    font-size: 1em;
+    white-space: nowrap;
+    /* Evita que el texto se divida en varias líneas */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Si es muy largo, corta el texto con "..." */
+}
+
+.btn-iniciar:hover {
+    background-color: goldenrod;
+}
+
+/* Imagenes de productos y riesgo */
+#background-image-riesgo,
+#background-image-motocross,
+#background-image-productos,
+#background-image-footer {
+    position: unset;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    /* Estira la imagen para llenar completamente el contenedor */
+}
+
+.productos h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Sección de productos */
+.productos {
+    background-size: cover;
+    /* Asegura que la imagen de fondo cubra todo el contenedor */
+    background-position: center;
+    /* Centra la imagen de fondo */
+    padding: 20px;
+    object-fit: fill;
+    position: absolute;
+    top: 385%;
+    /* Current position */
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+
+/* Imagen de fondo para la sección de productos */
+.submenu-producto {
+    position: relative;
+    /* Necesario para poder usar el z-index */
+    background-size: cover;
+    /* Asegura que la imagen cub ra todo el contenedor */
+    background-position: center;
+    /* Centra la imagen */
+    z-index: 5;
+    /* Colocado debajo de la sección de productos */
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Productos individuales */
+.producto {
+    display: inline-block;
+    margin: 1.5rem;
+    cursor: pointer;
+}
+
+.producto img {
+    width: 257px;
+    height: 367px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.producto img:hover {
+    transform: scale(1.1);
+}
+
+.galeria-fotos {
+    display: flex;
+    justify-content: center;
+    /* Centra las imágenes en el contenedor */
+    align-items: center;
+    flex-wrap: wrap;
+    /* Permite que las imágenes se ajusten en múltiples filas si es necesario */
+    margin: 0;
+    /* Elimina el margen */
+    padding: 0;
+    /* Elimina el padding */
+}
+
+h3 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: white;
+    border: 2px solid white;
+    text-align: center;
+    padding: 0%
+}
+
+.galeria-fotos img {
+    width: 386px;
+    height: 507px;
+    margin: 0.5rem;
+    object-fit: cover;
+    transition: border-color 0.3s ease;
+}
+
+.galeria-fotos img:hover {
+    transform: scale(1.05);
+    /* Efecto al cambiar el color del borde */
+}
+
+.submenu-producto {
+    background-image: url('../images/7.png');
+    /* Ruta a la imagen de fondo */
+    background-size: cover;
+    /* Asegura que la imagen de fondo cubra todo el contenedor */
+    background-position: center;
+    /* Centra la imagen de fondo */
+    padding: 20px;
+    /* Espacio interno, ajusta según sea necesario */
+}
+
+.submenu-producto button {
+    background-color: black;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submenu-producto button:hover {
+    background-color: goldenrod;
+}
+
+/* Modal de compra */
+.compra-modal .modal-content {
+    width: 80%;
+    /* Ancho del modal de compra */
+    height: 80%;
+    /* Altura del modal de compra */
+    background-image: url('../images/8.png');
+    /* Ruta a la imagen de fondo */
+    background-size: cover;
+    /* Asegura que la imagen de fondo cubra todo el contenedor */
+    background-position: center;
+}
+
+/* Modal de QR para WhatsApp */
+.qr-modal .modal-content {
+    width: 40%;
+    /* Ancho del modal de QR */
+    height: 40%;
+    /* Altura del modal de QR */
+    background-image: url('../images/modal-qr.png');
+    /* Ruta a la imagen de fondo */
+    background-size: cover;
+    /* Asegura que la imagen de fondo cubra todo el contenedor */
+    background-position: center;
+}
+
+/* Modal para solicitar nombre y correo */
+.datos-modal .modal-content {
+    width: 60%;
+    /* Ancho del modal de datos */
+    height: 60%;
+    /* Altura del modal de datos */
+    background-image: url('../images/modal.png');
+    /* Ruta a la imagen de fondo */
+    background-size: cover;
+    /* Asegura que la imagen de fondo cubra todo el contenedor */
+    background-position: center;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro semitransparente */
+    z-index: 1000;
+    padding: 0;
+}
+
+.modal-content {
+    background-size: cover;
+    /* Asegura que la imagen de fondo cubra todo el contenedor */
+    background-position: center;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1001;
+}
+
+.modal .close {
+    position: absolute;
+    top: 20px;
+    /* Distance from the top */
+    right: 20px;
+    /* Distance from the right */
+    color: white;
+    background-color: transparent;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1002;
+    /* Make sure it's above other content */
+}
+
+.modal-left {
+    flex: 1;
+    /* Ocupa una parte del modal */
+    margin-right: 20px;
+    /* Espacio entre la imagen y el contenido */
+}
+
+.modal-right {
+    flex: 2;
+    /* El contenido ocupa más espacio */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    /* Align inputs vertically */
+    margin-bottom: 15px;
+    /* Spacing between input fields */
+    font-family: "Racing Sans One", bold;
+    color: black;
+}
+
+.form-group label {
+    font-size: 1.2rem;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.modal button {
+    background-color: transparent;
+    border: 2px solid black;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Racing Sans One", bold;
+}
+
+.modal button:hover {
+    background-color: goldenrod;
+}
+
+/* Colocar .menu-image a la izquierda */
+.menu-image {
+    width: 320px !important;
+    /* Ajustar el ancho */
+    height: auto !important;
+    /* Mantener la relación de aspecto */
+    position: absolute;
+    top: 150px;
+    left: 300px;
+    max-width: 100%;
+    /* Asegura que no se exceda el tamaño del contenedor */
+    object-fit: cover;
+    /* Para que se ajuste bien al espacio disponible */
+}
+
+/* Centrar el contenido */
+.modal-content {
+    display: flex;
+    justify-content: center;
+    /* Alinea el contenido al centro horizontalmente */
+    align-items: center;
+    /* Centra el contenido verticalmente */
+    flex-direction: row;
+    /* Coloca la imagen y el contenido en una fila */
+    background-image: url('../images/8.png');
+    /* Ruta a la imagen de fondo */
+    background-size: cover;
+    /* Asegura que la imagen de fondo cubra todo el contenedor */
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.modal-left {
+    width: 40%;
+    /* Ajustar el ancho */
+    height: 70%;
+    /* Mantener la relación de aspecto */
+}
+
+/* El contenido a la derecha de la imagen */
+.modal-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    /* Alinea el texto a la izquierda */
+    background-color: white;
+}
+
+.borde-superior {
+    border: 2px solid black;
+    background-color: black;
+}
+
+.modal h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Modal de QR */
+.modal-content img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1rem;
+}
+
+/* Modal de datos del corredor */
+.modal-content .form-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: left; /* Alineación hacia la izquierda */
+    margin-left: -130px; /* Desplaza el texto hacia la izquierda */
+    font-size: 2rem; /* Ajustar tamaño de fuente según sea necesario */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .productos h2 {
+        font-size: 2rem;
+    }
+
+    .producto img {
+        width: 386px;
+        height: 507px;
+    }
+
+    .submenu-producto h3 {
+        font-size: 1.5rem;
+    }
+
+    .galeria-fotos img {
+        width: 100px;
+        /* Ancho de las imágenes de la galería */
+        height: 100px;
+        /* Altura de las imágenes de la galería */
+        margin: 0.5rem;
+        /* Margen entre las imágenes */
+        object-fit: cover;
+        /* Asegura que las imágenes de la galería mantengan su prohibición */
+        border: 2px solid white;
+        /* Borde opcional para las imágenes */
+        transition: border-color 0.3s ease;
+        /* Efecto al cambiar el color del borde */
+    }
+
+    .modal-content {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+.fa-instagram {
+    /* Allow precise positioning */
+    /* Change text color as necessary */
+    text-align: right;
+    color: black;
+    position: right;
+    /* Allow positioning relative to the modal */
+    bottom: 20px;
+    /* Space from the bottom */
+    right: 40px;
+    /* Move the icon further to the right */
+    font-size: 24px;
+    /* Adjust size if needed */
+    align-content: right;
+}
+
+#name-email-modal {
+    background-image: url('../images/modal.png');
+    /* Set the modal background image */
+    background-size: cover;
+    /* Ensure it covers the modal background */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#name-email-modal .modal-content {
+    background: white;
+    /* White background for inner modal content */
+    color: black;
+}
+
+.modal-header {
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+.rectangulo-blanco {
+    background-color: white;
+    padding: 20px;
+    border: 2px solid black;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-bottom: 220px solid  rgba(0, 0, 0, 0.05);
+    position: center; /* Asegúrate de que su contenedor tiene "position: relative" */
+    top: 100%; /* Ajusta a la posición vertical deseada */
+    left: 50%; /* Centramos el triángulo horizontalmente */
+    transform: translateX(62%); /* Mover el triángulo 20% hacia la derecha desde el centro */
+    cursor: pointer;
+    transition: border-bottom-color 0.3s;
+}
+
+.triangle:hover {
+    border-bottom-color:  rgba(0, 0, 0, 0.2);
+    /* Change color on hover */
+}
+
+.flames-decoration {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+}
+
+.flames-image {
+    width: 50px;
+    /* Set the desired width for the image */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+h1 {
+    position: absolute;
+    top: 150px;
+    left: 655px;
+}

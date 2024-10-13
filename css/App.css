@@ -1,0 +1,131 @@
+/* Estilo general de la página */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Asegurar que el contenedor ocupe toda la pantalla */
+body, html {
+  width: 100%;
+  height: auto; /* Permitir que el cuerpo tenga altura automática */
+  background-color: black; /* Fondo negro */
+  color: white;
+}
+
+/* Estilo del contenedor principal */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Cambiado a flex-start para que no se centre */
+  padding: 20px; /* Añadir espacio alrededor del contenido */
+}
+
+/* Estilo de la animación de carga */
+.damlest-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+/* Estilo de la imagen de carga para que se vea completa */
+/* General styles for images */
+img {
+  max-width: 100%;          /* Ensures the image never exceeds the container's width */
+  height: auto;             /* Maintains the aspect ratio */
+  object-fit: cover;        /* Covering the area while keeping aspect ratio */
+}
+
+/* Specific styles for additional wide images */
+.wide-image {
+  width: 100%;              /* Ensure they stretch to full width */
+  height: auto;             /* Keeps aspect ratio */
+  display: block;           /* Centers the image within its container */
+  margin: 0 auto;          /* Center image on page */
+}
+
+/* Mensaje de "Cargando..." */
+.loading-message {
+  font-size: 40px; /* Ajuste del tamaño de texto */
+  margin-bottom: 20px;
+}
+
+/* Contenedor del círculo de carga */
+.circle-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Espacio adicional para separar el círculo */
+}
+
+/* Animación del círculo de puntos */
+.dots {
+  position: relative;
+  display: flex;
+  height: 80px; /* Ajuste de tamaño del círculo */
+  width: 80px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Puntos animados del círculo */
+.dots span {
+  position: absolute;
+  height: 12px; /* Ajuste del tamaño de los puntos */
+  width: 12px;
+  background: white;
+  border-radius: 50%;
+  transform: rotate(calc(var(--i) * (360deg / 8))) translateY(30px); /* Ajuste de distancia del centro */
+  animation: animate 1.5s linear infinite;
+  animation-delay: calc(var(--i) * 0.1s);
+  opacity: 1;
+}
+
+/* Animación de puntos */
+@keyframes animate {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+/* Estilo de la barra de progreso */
+.progress-bar-container {
+  width: 80%; /* Ajustar ancho para mejor visualización */
+  height: 30px; /* Aumentar la altura de la barra de carga */
+  background-color: #d3d3d3;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px 0;
+  position: relative;
+}
+
+/* Barra de progreso con romboides horizontales */
+.progress-bar {
+  height: 100%;
+  width: 80%; /* Establecer la barra de progreso al 80% */
+  background-image: repeating-linear-gradient(
+    135deg,
+    white,
+    white 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  animation: loading 6s linear forwards; /* Animación de carga */
+}
+
+/* Animación de carga */
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 80%; /* Cambia a 80% al final de la animación */
+  }
+}
