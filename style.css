@@ -19,17 +19,6 @@ html {
     background-color: #000;
 }
 
-/* Contenedor de la Imagen */
-.image-container {
-    position: relative;
-    height: 100vh;
-    /* Mantiene el contenedor en el 100% de la vista vertical */
-    overflow: hidden;
-    /* Asegura que nada se desborde */
-    margin: 0;
-    /* Asegúrate de que no haya márgenes */
-}
-
 #background-image {
     width: 100%;
     /* Asegura que el ancho de la imagen es el 100% del contenedor */
