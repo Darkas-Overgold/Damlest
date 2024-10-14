@@ -1,4 +1,22 @@
-const app = new Vue({
+window.addEventListener('load', function () {
+    document.querySelector('.damlest-loading').style.display = 'block';
+    let progress = 0;
+    const progressBar = document.querySelector('.progress-bar-inner');
+    const progressText = document.querySelector('#progress');
+    const totalDuration = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
+    const intervalDuration = 1000; // Actualizar cada segundo
+    const interval = setInterval(function () {
+        progress += (intervalDuration / totalDuration) * 100;
+        progressBar.style.width = `${progress}%`;
+        progressText.textContent = `${progress.toFixed(2)}%`;
+        if (progress >= 100) {
+            clearInterval(interval); // Detener cuando llegue al 100%
+            document.querySelector('.damlest-loading').style.display = 'none';
+        }
+    }, intervalDuration);
+});
+
+new Vue({
     el: "#app",
     data: {
         showModal: false,
@@ -71,40 +89,6 @@ const app = new Vue({
             }
         }
     }
-});
-
-window.addEventListener('load', function () {
-    document.querySelector('.damlest-loading').style.display = 'block';
-    let progress = 0;
-    const progressBar = document.querySelector('.progress-bar-inner');
-    const progressText = document.querySelector('#progress');
-    const totalDuration = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
-    const intervalDuration = 1000; // Update every second
-    const interval = setInterval(function () {
-        progress += (intervalDuration / totalDuration) * 100;
-        progressBar.style.width = `${progress}%`;
-        progressText.textContent = `${progress.toFixed(2)}%`;
-        if (progress >= 100) {
-            clearInterval(interval); // Stop when it reaches 100%
-            document.querySelector('.damlest-loading').style.display = 'none';
-        }
-    }, intervalDuration);
-
-    // Event listener for keydown
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            // Close modals if they are open
-            if (app.showModal) {
-                app.cerrarModal(); // Close main modal
-            }
-            if (app.mostrarCompra) {
-                app.cerrarModalCompra(); // Close purchase modal
-            }
-            if (app.mostrarQRW) {
-                app.cerrarQR(); // Close QR modal
-            }
-        }
-    });
 });
 
 function openPage() {
