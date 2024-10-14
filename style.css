@@ -98,11 +98,13 @@ html {
     0% {
         transform: translateX(0);
     }
+
     99% {
         transform: translateX(calc(100% - 50px));
     }
+
     100% {
-        transform: translateX(0); /* Reinicio al llegar al final */
+        transform: translateX(0);
     }
 }
 
@@ -112,8 +114,9 @@ html {
     background: #000;
     border-radius: 15px;
     margin: 0 5px;
-    animation: move 2s linear infinite; /* Bucle infinito */
+    animation: move 2s linear infinite alternate;
 }
+
 
 .progress-icon {
     width: 30px;
@@ -167,6 +170,7 @@ html {
 }
 
 /* Imagenes de productos y riesgo */
+#background-image,
 #background-image-riesgo,
 #background-image-motocross,
 #background-image-productos,
@@ -586,6 +590,7 @@ h3 {
     cursor: pointer;
     color: white;
 }
+
 
 .rectangulo-blanco {
     background-color: white;
