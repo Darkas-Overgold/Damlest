@@ -593,22 +593,6 @@ h3 {
     }
 }
 
-.fa-instagram {
-    /* Allow precise positioning */
-    /* Change text color as necessary */
-    text-align: right;
-    color: black;
-    position: right;
-    /* Allow positioning relative to the modal */
-    bottom: 20px;
-    /* Space from the bottom */
-    right: 40px;
-    /* Move the icon further to the right */
-    font-size: 24px;
-    /* Adjust size if needed */
-    align-content: right;
-}
-
 #name-email-modal {
     background-image: url('../images/modal.png');
     /* Set the modal background image */
